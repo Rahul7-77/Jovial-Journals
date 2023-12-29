@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs") %>
+<div class="index-heading" style="margin-top: 3%;">
+    <h1>Jovial Journals</h1>
+</div>
+<% for(let i=0;i<entries.length;i++){ %>
+<div class="indi-detailed-card">
+    <h2><%=entries[i].title%></h2>
+    <p> <%=entries[i].story %> </p>
+
+    <!-- Comments section -->
+    <!-- <% for(let j=0;j<coms.length;j++){ %>
+        <p><%=coms[j].comment %></p>
+    <%}%> -->
+
+    <!-- Form for adding comments -->
+    <!-- <form action="/addcomment?id=<%=entries[i].id %>" method="POST">
+        <textarea name="comment" placeholder="Add your comment"></textarea>
+        <input type="submit" value="Add Comment">
+    </form> -->
+</div>
+<!-- <form action="/addcomment?id=<%=entries[i].id %>" method="POST">
+    <textarea name="comment" placeholder="Add your comment"></textarea>
+    <input type="submit" value="Add Comment">
+</form> -->
+<div class="indi-com-main">
+    <% for(let j=0;j<coms.length;j++){ %>
+        <div class="indi-com-sub">
+            <p><%=coms[j].comment %></p>
+        </div>
+    <%}%>
+</div>
+<%}%>
+
+
+
+<%- include("partials/footer.ejs") %>

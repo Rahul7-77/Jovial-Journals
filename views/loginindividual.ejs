@@ -1,0 +1,42 @@
+<%- include("partials/loginheader.ejs") %>
+<div class="index-heading" style="margin-top: 3%;">
+    <h1>Jovial Journals</h1>
+</div>
+<% for(let i=0;i<entries.length;i++){ %>
+<div class="indi-detailed-card" style="margin-top: 2%;">
+    <h2 style="font-family: 'Exo 2', sans-serif;text-decoration: underline"><%=entries[i].title.toUpperCase()%></h2>
+    <div class="indi-intro-card" style="display: flex;justify-content: left;margin-left: 2%;flex-direction: column;align-items: start;margin-top: 2%;">
+        <h5 style="font-family: 'Titillium Web', sans-serif;">AUTHOR : <%=entries[i].name.toUpperCase() %></h4>
+        <h5 style="font-family: 'Titillium Web', sans-serif;">PLACE : <%=entries[i].place.toUpperCase() %></h4>
+    </div>
+    <p style="font-family: 'Dosis', sans-serif;font-size: large;text-align: justify;display: inline-block;margin-top: 2%;"> <%=entries[i].story %> </p>
+</div>
+<div class="indi-com-form" style="margin-top: 2%;display: flex;flex-direction: column;margin-left: 7.7%;">
+    <!-- <form action="/addcomment?id=<%=entries[i].id %>" method="POST">
+        <textarea name="comment" placeholder="Add your comment"></textarea>
+        <input type="submit" value="Add Comment">
+    </form> -->
+    <div class="form-floating">
+        <form action="/addcomment?id=<%=entries[i].id %>" method="POST">
+        <!-- <label for="floatingTextarea2">Comments</label> -->
+        <textarea class="form-control" style="max-width: 92%;" placeholder="Leave a comment here" id="floatingTextarea2" rows="3" style="height: 100px" name="comment"></textarea>
+        <button type="submit" name="submit" class="btn btn-primary" style="margin-top: 2%;margin-left: 0.5%;">SUBMIT</button>
+        </form>
+     </div>
+</div>
+<div class="comment" style="margin-left: 7.5%;max-width: 92;margin-top: 2%;">
+    <h3 style="font-family: 'Exo 2', sans-serif;">Comments</h3>
+     <% for(let j=0;j<coms.length;j++){ %>
+        <div style="margin-top: 2%;">
+            <div class="author-info">
+                <!-- <span class="dot"></span> -->
+                <h6 class="author-name" style="font-family: 'Exo 2', sans-serif"><%=coms[j].username%><span class="dot" style="margin-left: 1%;"></span></h6>
+            </div>
+            <div class="comment-content">
+                <p class="comment-text" style="font-family: 'Dosis', sans-serif"><%=coms[j].comment%></p>
+            </div>
+        </div>
+     <%}%>
+</div>
+<%}%>
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,357 @@
+body{
+    background-color: white;
+    margin: 0%;
+    padding: 0%;
+    padding-top: 0%;
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+body .navbar navbar-expand-lg bg-body-tertiary{
+    max-width: 100%;
+    margin-top: 0%;
+    color: gold;
+    background-color: rgb(103, 102, 102);
+}
+/* .navbar navbar-expand-lg bg-dark{
+    background-color: white;
+} */
+.navbar-nav{
+    padding-left: 60%;
+    margin-right: -5%;
+    width: auto;
+}
+.container-fluid{
+    margin-top: -1%;
+    margin-bottom: -0.5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    color: gold;
+    background-color: #464646;
+}
+.navbar-brand{
+    color: rgb(239, 239, 204);
+}
+.nav-link active{
+    color: rgb(239, 239, 204);
+}
+.nav-item a{
+    color: rgb(239, 239, 204);
+}
+.index-main{
+    flex: 1;
+}
+.index-heading{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50; 
+}
+.footer {
+    margin-top: 5%;
+    /* position: relative; */
+    background-color: #464646; /* Dark gray background color */
+    color: #ffd700; /* Light gold text color */
+    padding: 20px 0;
+    text-align: center;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+  }
+  
+  .f-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer-text {
+    margin-top: 10px;
+  }
+  
+  .social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .social-icons li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .social-icons li a {
+    color: #ffd700; /* Light gold color for icon */
+    font-size: 24px;
+  }
+  
+  /* Adjust the font size and any other styles for icons as needed */
+  
+.index-one{
+    display: grid;
+    margin-top: 2%;
+    grid-template-columns: 1.15fr 0.85fr;
+}
+.index-one-one{
+    margin-top: 5%;
+    padding-left: 4%;
+}
+.index-one-one-links{
+    margin-left: 2%;
+}
+.links-help{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.index-one-one p{
+    font-size: 100%;
+    font-family: Arial, sans-serif;
+    color: #555;
+}
+.index-one-two{
+    /* margin-top: -5%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.index-one-two img{
+    height: 120%;
+    width: 120%;
+}
+/* success page from here */
+/* Basic card styling */
+/* Style the filter dropdown */
+/* Style the filter dropdown */
+
+.success-container{
+    position: relative;
+}
+
+.success-main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.success-card {
+    width: 300px;
+    padding: 20px;
+    border: 1.5px solid rgb(165, 164, 164);
+    border-radius: 4px;
+    margin: 20px auto;
+    box-shadow: 7px 7px darkgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Title styling */
+.success-title {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+/* Author and Place styling */
+.success-info {
+    text-align: left;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.success-author {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.success-place {
+    font-size: 0.9em;
+    font-style: italic;
+    color: #888;
+}
+
+/* Story styling */
+.success-story {
+    font-size: 1em;
+    line-height: 1.5;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* individual div */
+/* ...Other CSS rules... */
+
+.indi-detailed-card {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    min-height: 80vh; /* Set a minimum height of 80% of the viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+.indi-detailed-card h2 {
+    text-align: center;
+    margin-bottom: 10px; /* Adds space below the title */
+}
+
+.indi-comments {
+    margin-top: auto; /* Pushes the comments section to the bottom */
+}
+
+.indi-com-main{
+    margin-top: 5%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+/* Basic styling for comment layout */
+.comment {
+    max-width: 85%;
+    margin-bottom: 20px; /* Add spacing between comments */
+    /* border-bottom: 1px solid #ccc; Add a border at the bottom of each comment */
+    padding: 10px 0; /* Add padding for content */
+  }
+  
+  .author-info {
+    margin-bottom: 5px; /* Space between name and comment */
+  }
+  
+  .author-name {
+    font-weight: bold; /* Make the name bold */
+  }
+  
+  .comment-text {
+    margin: 0; /* Remove default margin */
+  }
+  
+.dot {
+    display: inline-block;
+    width: 6px; /* Width of the dot */
+    height: 6px; /* Height of the dot */
+    border-radius: 50%; /* Make it a circle */
+    background-color: #b7bab2; /* Dot color */
+    margin-right: 5px; /* Space between dot and name */
+  }
+.indi-com-three{
+    /* padding: 1%; */
+    /* border-radius: 8px;
+    box-shadow: 10px 10px rgba(127, 126, 126, 0.1);
+    background-color: #dbdcda;
+    width: 80%;
+    justify-content: center; */
+    /* margin-top: 3%; */
+    /* margin-left: 5%;
+    margin-right: 5%; */
+}
+/* .indi-com-sub{
+    padding: 20px;
+    padding: 1%;
+    border-radius: 8px;
+    box-shadow: 10px 10px rgba(127, 126, 126, 0.1);
+    background-color: #dbdcda;
+    width: 80%;
+    justify-content: center;
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+} */
+
+@media screen and (max-width: 1024px) {
+    .index-one{
+        grid-template-columns: auto;
+    }
+    .navbar-nav{
+        padding-left: 0%;
+    }
+    .index-one-one{
+        max-width: 100%;
+        order: 1;
+    }
+    .index-one-one p{
+        font-size: 80%;
+    }
+    .index-one-two img{
+        height: 90%;
+        width: 90%;
+    }
+    .index-one-two{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .index-one-one,
+    .index-one-two {
+        width: 100%; /* Full width on smaller screens */
+    }
+    /* .success-dropdown{
+        margin-left: -30%;
+    }
+    .dropdown{
+        margin-left: -30%;
+    } */
+}
+@media screen and (max-width:700px) {
+    .success-main{
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (min-height: 1000px) {
+    .navbar navbar-expand-lg bg-body-tertiary{
+        height: 20%;
+    }
+    .index-one{
+        grid-template-columns: auto;
+    }
+    .navbar-nav{
+        padding-left: 0%;
+    }
+    .index-one-one{
+        order: 1;
+        max-width: 800;
+    }
+    .index-one-one p{
+        font-size: 140%;
+    }
+    .index-one-one-links a{
+        font-size: 140%;
+    }
+    .index-one-one-links{
+        margin-top: 5%;
+    }
+    .btn btn-primary{
+        font-size: 140%;
+        padding-top: 10%;
+    }
+    .index-one-two img{
+        height: 100%;
+        width: 100%;
+    }
+    .index-one-one,
+    .index-one-two {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+@media (min-width: 1025px) {
+    .success-card {
+        margin: 20px;
+    }
+    
+    /* Display cards side by side */
+    .success-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+}

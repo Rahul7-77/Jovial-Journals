@@ -1,0 +1,34 @@
+<%- include("partials/loginheader.ejs") %>
+<div class="index-heading">
+    <h1>Jovial Journals</h1>
+</div>
+<form action="/addingjoke" method="post">
+  <!-- <div class="form-group shadow-textarea" style="max-width: 80%; margin-left: 10%;margin-top: 1%;">
+  <label for="PersonName">type something</label>
+  <input type="text" name="PersonName" id="add-one"> -->
+  <!-- <button type="submit" name="submit"> submit</button> -->
+  <!-- </div> -->
+  <div class="form-group" style="max-width: 50%; margin-left: 10%;margin-top: 1%;">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" id="Name" name="PersonName" placeholder="Enter your name">
+  </div>
+  <div class="form-group" style="max-width: 50%; margin-left: 10%;margin-top: 1%;">
+    <label for="Place">Happened at?</label>
+    <input type="text" class="form-control" id="Place" name="place" placeholder="happened at?">
+  </div>
+  <div class="form-group" style="max-width: 50%; margin-left: 10%;margin-top: 1%;">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="what is the title?">
+  </div>
+  <div class="form-group shadow-textarea" style="max-width: 80%; margin-left: 10%;margin-top: 1%;">
+    <label for="exampleFormControlTextarea6">Write your funny incident here </label>
+    <textarea class="form-control z-depth-1" name="funnyStory" style="margin-top: 1%;" id="exampleFormControlTextarea6" rows="20" placeholder="Write your funny incident here..."></textarea>
+  </div>
+  <!-- <button type="submit" name="submit"> submit</button> -->
+  <button type="submit" name="newjoke-submit" class="btn btn-primary" style="margin-left: 45%;margin-top: 3%;">Submit</button>
+</form>
+<!-- <div class="form-group shadow-textarea" style="max-width: 80%; margin-left: 10%;margin-top: 1%;">
+  <label for="exampleFormControlTextarea6">Write your funny incident here </label>
+  <textarea class="form-control z-depth-1" style="margin-top: 1%;" id="exampleFormControlTextarea6" rows="20" placeholder="Write your funny incident here..."></textarea>
+</div> -->
+<%- include("partials/footer.ejs") %>

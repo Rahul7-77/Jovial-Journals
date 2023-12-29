@@ -1,0 +1,80 @@
+<%- include("partials/loginheader.ejs"); %>
+<div class="dropdown" style="margin-top: 1%;">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Apply Filter
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="/loginsuccess">All</a></li>
+      <li><a class="dropdown-item" href="/newest">Newest</a></li>
+      <li><a class="dropdown-item" href="/oldest">Oldest</a></li>
+      <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+    </ul>
+  </div>
+<div class="index-heading" style="margin-top: 3%;">
+    <h1>Jovial Journals</h1>
+</div>
+<div class="input-group rounded" style="display: flex;justify-content: center;align-items: center;margin-top: 3%;">
+    <div>
+        <form action="/searchtitle" method="post">
+            <input type="text" name="searchtext" placeholder="Enter the title here" size="20">
+            <!-- <textarea name="searchtext" id="searchtext" cols="30" rows="2" placeholder="Enter the title"></textarea> -->
+            <button class="btn btn-primary">Find</button>
+        </form>
+    </div>
+</div>
+<!-- <div class="sucess-container"> -->
+<!-- <div class="dropdown" style="margin-left: 80%;">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Dropdown button
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+    </ul>
+  </div> -->
+<!-- </div> -->
+<div class="success-main" style="margin-top: 2%;">
+    <% for(let i=0;i<entries.length;i++){ %>
+        <!-- <li> -->
+            <!-- <%= entries[i] %> -->
+        <!--</li> -->
+        <div class="success-card">
+            <h2 class="success-title" style="font-family: 'Open Sans', sans-serif;;"> <%=entries[i].title %> </h2>
+            <div class="success-info">
+                <h4 class="success-author">AUTHOR :  <%=entries[i].name.toUpperCase() %></h4>
+                <!-- <h5 class="success-author"> <%=entries[i].name %> </h5> -->
+                <!-- <h5 class="success-place"> <%=entries[i].place %> </h5> -->
+                <h4 class="success-author">PLACE  :  <%=entries[i].place.toUpperCase() %></h4>
+            </div>
+            <p class="success-story" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <%= entries[i].story %>
+            </p>
+            <a href="/ind?id=<%=entries[i].id %>" class="btn btn-primary">Read more</a>
+        </div>
+        
+    <%}%>
+</div>
+
+<script>
+    // Get all elements with class 'truncate-text'
+const truncateTexts = document.querySelectorAll('.success-story');
+
+truncateTexts.forEach((element) => {
+    const text = element.textContent;
+    const limit = 200; // Set the character limit
+
+    if (text.length > limit) {
+        // Truncate the text content and append '...' if it exceeds the limit
+        element.textContent = text.slice(0, limit) + '...';
+    }
+});
+
+</script>
+
+    <!-- <form action="/getBack" method="post">
+        <label for="sm">type something</label>
+        <input type="text" name="w78g" id="help">
+        <button type="submit" name="submit"> submit</button>
+    </form> -->
+    <%- include("partials/footer.ejs"); %>
