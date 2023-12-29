@@ -17,7 +17,7 @@ Jovial Journals is a platform designed for users to share amusing incidents from
 ## Technologies Used
 
 - Frontend: HTML, CSS, JavaScript
-- Backend: Node.js, Express.js
+- Backend: Node.js, Express.js, Ejs
 - Database: PostgreSQL
 - Authentication: JWT (JSON Web Tokens)
 
