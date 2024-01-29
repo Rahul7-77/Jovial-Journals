@@ -46,4 +46,4 @@ Jovial Journals is a platform designed for users to share amusing incidents from
 3. Start the Server:
 
    ```bash
-   npm start
+   node index.js
