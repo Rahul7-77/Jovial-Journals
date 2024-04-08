@@ -18,14 +18,75 @@ app.use(session({
 }));
 app.use(express.static("public"));
 
-const db=new pg.Client({
-    user:"postgres",
-    host:"localhost",
-    database:"new-one",
-    password:"",
-    port:5432,
+// const db=new pg.Client({
+//     user:"postgres",
+//     host:"localhost",
+//     database:"new-one",
+//     password:"",
+//     port:5432,
+// });
+// db.connect();
+
+const db = new pg.Client({
+    user: process.env.RENDER_POSTGRES_USER, // Render provides environment variables for PostgreSQL credentials
+    host: process.env.RENDER_POSTGRES_HOST, // Render provides environment variables for PostgreSQL credentials
+    database: process.env.RENDER_POSTGRES_DB, // Render provides environment variables for PostgreSQL credentials
+    password: process.env.RENDER_POSTGRES_PASSWORD, // Render provides environment variables for PostgreSQL credentials
+    port: process.env.RENDER_POSTGRES_PORT, // Render provides environment variables for PostgreSQL credentials
 });
-db.connect();
+
+db.connect()
+    .then(() => {
+        console.log('Connected to PostgreSQL database on Render');
+
+        // Define SQL statements to create tables
+        const createTablesSQL = `
+            -- Table: users
+            CREATE TABLE IF NOT EXISTS users (
+                user_id SERIAL PRIMARY KEY,
+                username TEXT UNIQUE NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                password TEXT NOT NULL
+            );
+
+            -- Table: storage
+            CREATE TABLE IF NOT EXISTS storage (
+                id SERIAL PRIMARY KEY,
+                name TEXT,
+                place TEXT,
+                story TEXT,
+                title TEXT,
+                user_id INT NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(user_id)
+            );
+
+            -- Table: comlikes
+            CREATE TABLE IF NOT EXISTS comlikes (
+                id SERIAL PRIMARY KEY,
+                main_id INT NOT NULL,
+                comment TEXT,
+                user_id INT NOT NULL,
+                FOREIGN KEY (main_id) REFERENCES storage(id),
+                FOREIGN KEY (user_id) REFERENCES users(user_id)
+            );
+
+            -- Table: usernamechecker
+            CREATE TABLE IF NOT EXISTS usernamechecker (
+                id SERIAL PRIMARY KEY,
+                username TEXT
+            );
+        `;
+
+        // Execute SQL statements to create tables
+        return db.query(createTablesSQL);
+    })
+    .then(() => {
+        console.log('Tables created successfully');
+    })
+    .catch((err) => {
+        console.error('Error creating tables:', err);
+    })
 
 app.get('/',(req,res) =>{
     res.render("index.ejs");
@@ -164,7 +225,7 @@ app.get('/againlogin',(req,res) => {
 
 app.post('/searchtitle', async (req,res) => {
     let searchtext=req.body.searchtext;
-    let s="wow"+searchtext;
+    let s=searchtext;
     let result=await db.query("SELECT * FROM storage WHERE title LIKE $1",[
         "%"+searchtext+"%"
     ]);
@@ -175,7 +236,7 @@ app.post('/searchtitle', async (req,res) => {
 
 app.post('/searchtitlenol', async (req,res) => {
     let searchtext=req.body.searchtext;
-    let s="wow"+searchtext;
+    let s=searchtext;
     let result=await db.query("SELECT * FROM storage WHERE title LIKE $1",[
         "%"+searchtext+"%"
     ]);
@@ -196,8 +257,8 @@ app.post('/userreg',async (req,res) => {
     let checker2=await db.query("SELECT * FROM users WHERE email=$1",[
         email
     ]);
-    console.log(checker.length);
-    console.log(checker2.length);
+    // console.log(checker.length);
+    // console.log(checker2.length);
     if(checker.rows.length>0){
         flag1=true;
     }
